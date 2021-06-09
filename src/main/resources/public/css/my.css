@@ -1,0 +1,30 @@
+body {
+  background-color: white;
+}
+
+img {
+  width:20px;
+  height:20px;
+}
+
+.mytable {
+  
+  color: black;
+  border-collapse: collapse;
+  width: 100%;
+  vertical-align: center;
+  text-align:left;
+  font-family: sans-serif;
+  
+}
+
+table tr:hover{  
+    background: #f1f1f1;
+}
+
+.vertical
+{
+   width: 100%;
+   height: 0.5px; /* or height in PX */
+   color: black;
+} 

@@ -1,0 +1,17 @@
+<personen>
+	<person>
+		<vorname>Paul</vorname>
+		<nachname>Paulsen</nachname>
+		<Anrede>Herr</Anrede>
+	</person>
+	<person>
+		<vorname>Paula</vorname>
+		<nachname>Paulsen</nachname>
+		<Anrede>Frau</Anrede>
+	</person>
+	<person>
+		<vorname>Erika</vorname>
+		<nachname>Mustermann</nachname>
+		<Anrede>Frau</Anrede>
+	</person>
+</personen>

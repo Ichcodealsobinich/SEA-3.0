@@ -8,50 +8,29 @@
     <!--  <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">  -->
     <link rel="stylesheet" href="css/my.css">
-    
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <meta charset="UTF-8">					<!-- meta: charset legt fest wie Zeichen interpretiert werden sollen. -->
     										<!-- HTML 5. Kann man schließen (XML-konform), muss man aber nicht    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    										<!-- meta:  -->
+	<script src="myscript.js" type="module"></script>							<!-- meta:  -->
   </head>
   <!-- body: sichtbare Bereich -->
   <body>
-    <h1>Liste der Personen</h1> 	<!-- h: header -->
+    <h1 id="2">Liste der Personen</h1> 	<!-- h: header -->
    	<hr class="vertical"/>		  
-	<table class="table mytable">
+	<table class="table mytable" id="idtable">
 	  <thead>
 	    <tr>
 	      <th scope="col">#</th>
 	      <th scope="col">Salutation</th>
-	      <th scope="col">First</th>
-	      <th scope="col">Last</th>
+	      <th scope="col">Firstname</th>
+	      <th scope="col">Lastname</th>
 	      <th scope="col">Profile</th>
 	    </tr>
 	  </thead>
 	  <tbody>
-	    <tr>
-	      <th scope="row">1</th>
-	      <td>Herr</td>      
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td><img src="img/mann.png"> </td>
-	    </tr>
-	    <tr>
-	      <th scope="row">2</th>
-	      <td>Herr</td>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td><img src="img/mann.png"> </td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td>Frau</td>
-	      <td>Erika</td>
-	      <td>Mustermann</td>
-	      <td><img src="img/erika.jpg"> </td>
-	    </tr>
 	  </tbody>
-	</table>
+	</table>	
   </body>
 </html>
 

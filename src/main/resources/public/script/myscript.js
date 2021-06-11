@@ -1,7 +1,3 @@
-var para = document.getElementById("2");
-para.textContent = "List of Persons";
-
-
 
 //fetch("http://localhost:8080/personen.json")
 //	.then(answer => answer.json()) 	//Lamnda-Ausdruck statt Funktionsparameter
@@ -41,5 +37,7 @@ function getIcon(anrede) {
     		return 'img/frau.png'
 	} 
 }
+
+
 
 

@@ -3,7 +3,7 @@
 //	.then(answer => answer.json()) 	//Lamnda-Ausdruck statt Funktionsparameter
 //	.then(json => cell.textContent = json.Personen[0].anrede); //Lamnda-Ausdruck statt Funktionsparameter
 
-fetch("http://localhost:8080/personen.json")
+fetch("http://localhost:8080/participants")
 	.then(getJson)     //Functional programming in JS
 	.then(buildTable); //Functional programming in JS
 

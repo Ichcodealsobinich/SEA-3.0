@@ -9,8 +9,10 @@ function oninputclick(event){
 	var nachname = lname.value;
 	var salut = document.getElementById("salut");
 	var anrede = salut.value;
+	var birthday = document.getElementById("birthday");
+	var date = birthday.value;
 	
-	var json = `{"anrede":"${anrede}", "vorname":"${vorname}","nachname":"${nachname}"}`
+	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "birthday":"${date}"}`
 	console.log(json);
 	
 	fetch("http://localhost:8080/submitPerson", 

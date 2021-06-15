@@ -11,14 +11,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import de.telekom.sea3.webserver.service.PersonService;
 
 @Controller
-public class PersonController {
+public class PersonHTMLController {
 
 	private PersonService personservice;
 	
 	@Autowired
-	public PersonController(PersonService ps) {
+	public PersonHTMLController(PersonService ps) {
 		this.personservice = ps;
 	}
+	
+	@GetMapping("/count")
+	@ResponseBody
+	public String getSize() {
+		
+		return String.valueOf(personservice.getSize());
+	}	
 	
 	@GetMapping("/greeting/{name}")
 	public @ResponseBody ResponseEntity<String> greeting(@PathVariable String name) {

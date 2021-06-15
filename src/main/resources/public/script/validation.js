@@ -9,11 +9,12 @@ function oninputclick(event){
 	var nachname = lname.value;
 	var salut = document.getElementById("salut");
 	var anrede = salut.value;
+	var birthday = document.getElementById("birthday");
+	var date = birthday.value;
 	
-	var json = `{"anrede":"${anrede}", "vorname":"${vorname}","nachname":"${nachname}"}`
-	console.log(json);
+	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "birthday":"${date}"}`
 	
-	fetch("http://localhost:8080/submitPerson", 
+	fetch("http://localhost:8080/json/person", 
 		{
 			method: 'POST',
 			headers: {

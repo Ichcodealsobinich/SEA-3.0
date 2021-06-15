@@ -7,15 +7,24 @@ public class Persons {
 
 	private List<Person> pList = new ArrayList<Person>();
 
-	public List<Person> get() {
+	public List<Person> getPersons() {
 		return pList;
 	}
 
-	public void set(List<Person> pList) {
+	public void setPersons(List<Person> pList) {
 		this.pList = pList;
 	}
 	
-	public String toJSON() {
-		return "";
+	public void addPerson(Person p) {
+		pList.add(p);
 	}
+	
+	public Person getPerson(int id) {
+		return pList.get(id);
+	}
+	
+	public int size() {
+		return pList.size();
+	}	
+	
 }

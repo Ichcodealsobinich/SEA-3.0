@@ -39,4 +39,12 @@ public class Person {
 	public void setSalutation(String salutation) {
 		this.salutation = Salutation.fromString(salutation);
 	}
+	
+	public Person(String firstname, String lastname, String salutation) {
+		this.firstname=firstname;
+		this.lastname=lastname;
+		this.salutation=Salutation.fromString(salutation);
+	}
+	
+	public Person() {}
 }

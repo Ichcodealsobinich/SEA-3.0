@@ -1,5 +1,8 @@
 package de.telekom.sea3.webserver.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import de.telekom.sea3.webserver.repo.PersonRepository;
@@ -9,6 +12,7 @@ import de.telekom.sea3.webserver.model.*;
 public class PersonService {
 
 	private PersonRepository personrepository;
+
 
 	@Autowired
 	public PersonService(PersonRepository personrepository) {
@@ -20,7 +24,15 @@ public class PersonService {
 	}
 	
 	public Persons getAllPersons() {
-		return new Persons();
+		return personrepository.getAllPersons();
+	}
+	
+	public Person getPerson(int id) {
+		return personrepository.getPerson(id);
+	}
+
+	public Person addPerson(Person p) {
+		return personrepository.addPerson(p);		
 	}
 	
 }

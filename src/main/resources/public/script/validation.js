@@ -13,9 +13,8 @@ function oninputclick(event){
 	var date = birthday.value;
 	
 	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "birthday":"${date}"}`
-	console.log(json);
 	
-	fetch("http://localhost:8080/submitPerson", 
+	fetch("http://localhost:8080/json/person", 
 		{
 			method: 'POST',
 			headers: {

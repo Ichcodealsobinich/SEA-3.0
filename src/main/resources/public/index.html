@@ -7,8 +7,13 @@
     <meta charset="UTF-8">					
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="script/myscript.js" type="module"></script>
-	<script src="script/nav.js" ></script>	
-	<script src="script/validation.js" type="module"></script>							
+	<script src="script/nav.js"></script>	
+	<script>function deletePerson(id){
+		var url = `http://localhost:8080/json/person/${id}` ;
+		var meta = {method: 'DELETE'}
+		fetch(url, meta);
+	}</script>
+	<!--  <script src="script/validation.js" type="module"></script>-->							
   </head>
 
   <body>
@@ -19,9 +24,11 @@
   				<button class="tablinks" onclick="openTab(event, 'add')">Anmelden</button>
   				<button class="tablinks" onclick="openTab(event, 'stuff')">Sonstiges</button>
 			</div>
-			<font color="white">  
-  		    	<h1>SEA Kurs</h1>
-    			<p>Lebenslanges Lernen!</p>
+			<font color="black">  
+				<BLOCKQUOTE>	
+  		    		<h1> SEA Kurs</h1>
+    				<p> Lebenslanges Lernen!</p><br>
+    			</BLOCKQUOTE>	
     		</font>
   		</div>
 	</header>
@@ -33,18 +40,19 @@
  				<thead>
    				<tr>
 			      <th scope="col">#</th>
-			      <th scope="col">Salutation</th>
-			      <th scope="col">Firstname</th>
-			      <th scope="col">Lastname</th>
+			      <th scope="col">Anrede</th>
+			      <th scope="col">Vorname</th>
+			      <th scope="col">Nachname</th>
+			      <th scope="col">Email Adresse</th>
+			      <th scope="col">Geburtsdatum</th>
 			      <th scope="col">Profile</th>
    				</tr>
- 				</thead>
- 				<tbody>
- 				</tbody>
+ 				</thead>	
+				<tr></tr>			
 		</table>
 	</div>  
 	<div id="add" class="tabcontent">
-		<h5>Join us!</h5>
+		<h5>Jetzt anmelden!</h5>
 		<form>
 			<label for="salut">Anrede</label><br>
 		 	<select name="salut" id="salut">
@@ -55,10 +63,12 @@
 		  	<label for="fname">Vorname</label><br>
 		  	<input type="text" id="fname" name="fname"><br>
 		  	<label for="lname">Nachname</label><br>
-		  	<input type="text" id="lname" name="lname"><br>	
+		  	<input type="text" id="lname" name="lname"><br>
+		  	<label for="email">Email Adresse</label><br>
+		  	<input type="text" id="email" name="email"><br>	
 		  	<label for="birthday">Geburtsdatum</label><br>
-			<input type="date" id="birthday" name="birthday"value="2021-06-15"
-       		min="1900-01-01" max="2021-06-15"><br>	<br>
+			<input type="date" id="birthday" name="birthday"value="2003-06-16"
+       		min="1900-01-01" max="2003-06-16"><br>	<br>
 		 	<input id="button" type="submit" value="Submit">
 		</form>
 	</div>	 
@@ -66,9 +76,8 @@
 		<h5>Bla</h5>
 	</div>	   
 	<footer>
-  		<div class="wrap">
-    		<div class="sidebar"></div>
-    		<div class="content"></div>
+  		<div class="wrap">   
+	
   		</div>
 	</footer>
   </body>

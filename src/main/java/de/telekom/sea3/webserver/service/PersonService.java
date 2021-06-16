@@ -31,8 +31,17 @@ public class PersonService {
 		return personrepository.getPerson(id);
 	}
 
+
 	public Person addPerson(Person p) {
 		return personrepository.addPerson(p);		
+	}
+	
+	public boolean delete(int id) {
+		return personrepository.delete(id);
+	}
+	
+	public Person update(int id, Person p) {
+		return personrepository.update(id, p);
 	}
 	
 }

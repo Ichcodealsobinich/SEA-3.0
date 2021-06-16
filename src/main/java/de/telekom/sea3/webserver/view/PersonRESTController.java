@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
+import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,11 +44,10 @@ public class PersonRESTController {
 	 */
 	@GetMapping("/json/persons/all")
 	public Persons getPersons(@RequestHeader HttpHeaders head) {	
-		System.out.println(head.getAccept().toString());
 		return personservice.getAllPersons();
 	}
 	
-	@GetMapping("/json/participant/{id}")
+	@GetMapping("/json/persons/{id}")
 	public Person getperson(@PathVariable("id") int id) {
 		return personservice.getPerson(id);
 	}
@@ -55,10 +57,13 @@ public class PersonRESTController {
 		return personservice.addPerson(p);
 	}
 	
-	@ResponseBody
-	@ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
-	public String handleHttpMediaTypeNotAcceptableException() {
-		System.out.println("Catched Exception with Media Type");
-	    return "acceptable MIME type:" + MediaType.APPLICATION_JSON_VALUE;
+	@DeleteMapping("/json/person/{id}")
+	public boolean delete(@PathVariable("id") int id){		
+		return personservice.delete(id);
+	}
+	
+	@PutMapping("/json/person/{id}")
+	public Person update(@PathVariable("id") int id, @RequestBody Person p){
+		return personservice.update(id,p);
 	}
 }

@@ -8,14 +8,27 @@ public class Person {
 	private String firstname;
 	private String lastname;
 	private Salutation salutation;
-	/*private LocalDate birthday;
+	private LocalDate birthday;
+	private String emailaddress;
+	
+	public String getEmailaddress() {
+		return emailaddress;
+	}
+	public boolean setEmailaddress(String emailAddress) {
+		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+		if (emailAddress.matches(regex)) {
+			this.emailaddress = emailAddress;
+			return true;
+		}
+		return false;		
+	}
 	
 	public LocalDate getBirthday() {
 		return birthday;
 	}
 	public void setBirthday(LocalDate date) {
 		this.birthday = date;
-	}*/
+	}
 	
 	public String getFirstname() {
 		return firstname;
@@ -32,6 +45,7 @@ public class Person {
 	public Salutation getSalutation() {
 		return salutation;
 	}
+	
 	public void setSalutation(Salutation salutation) {
 		this.salutation = salutation;
 	}
@@ -47,4 +61,8 @@ public class Person {
 	}
 	
 	public Person() {}
+	
+	public String toString() {
+		return this.salutation.toString() + " " + firstname + " " + lastname;
+	}
 }

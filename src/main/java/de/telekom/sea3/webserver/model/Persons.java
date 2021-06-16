@@ -23,8 +23,26 @@ public class Persons {
 		return pList.get(id);
 	}
 	
+	public Person setPerson(int id, Person p) {
+		try {
+			pList.set(id, p);
+			return p;
+		}catch (Exception e) {
+			return null;
+		}
+	}
+	
 	public int size() {
 		return pList.size();
 	}	
+	
+	public boolean delete(int id) {
+		try {
+			pList.remove(id);
+			return true;
+		} catch (Exception e){
+			return false;
+		}
+	}
 	
 }

@@ -6,7 +6,7 @@ document.getElementById("list").click();
 refresh();
 
 function refresh(){
-	fetch("http://localhost:8080/json/persons/all",
+	fetch("/json/persons/all",
 		{
 			method: 'GET',
 			headers: {
@@ -17,7 +17,6 @@ function refresh(){
 	.then(buildTable); //Functional programming in JS
 }
 
-
 function getJson(ServerResponse){
 	return ServerResponse.json();
 }
@@ -25,6 +24,14 @@ function getJson(ServerResponse){
 function buildTable(json) {
 	var tabelle = document.getElementById("idtable");
 	var i =0;
+	
+	//clean up table (shamelessly copied from Stackverflow)
+	Array.prototype.slice.call(document.getElementsByTagName('tr')).forEach(
+  		function(item) {
+    	item.remove();
+	});
+	
+	//build table completely new
 	for (var element of json.persons) {		
 		tabelle.insertAdjacentHTML("beforeend", 
 			  `<tr>`
@@ -78,7 +85,7 @@ function oninputclick(event){
 	
 	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}"}`
 	
-	fetch("http://localhost:8080/json/person", 
+	fetch("/json/person", 
 		{
 			method: 'POST',
 			headers: {
@@ -90,6 +97,11 @@ function oninputclick(event){
 	document.getElementById("list").click();
 }
 
+function deletePerson(id){
+		var url = `/json/person/${id}` ;
+		var meta = {method: 'DELETE'}
+		fetch(url, meta).then(refresh);
+}
 
 
 

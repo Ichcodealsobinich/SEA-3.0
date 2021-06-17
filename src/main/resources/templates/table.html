@@ -1,0 +1,38 @@
+<!DOCTYPE html>						
+<html lang="en" xmlns:th="http://www.thymeleaf.org">													
+  <head>
+    <title>Count</title>
+						
+  </head>
+
+  <body>
+  	<div id="list" class="tabcontent">  			
+  		<h3 id="2">Teilnehmer</h3> 	
+ 		<hr class="vertical"/>		  
+		<table class="table mytable" id="idtable">
+ 				<thead>
+   				<tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Anrede</th>
+			      <th scope="col">Vorname</th>
+			      <th scope="col">Nachname</th>
+			      <th scope="col">Email Adresse</th>
+			      <th scope="col">Geburtsdatum</th>
+			      <th scope="col">Profile</th>
+   				</tr>
+ 				</thead>
+ 				<tbody th:each="row, iStat : ${persons}">
+ 					<tr>
+ 						<td scope="row" th:text="${iStat.index}" </td>
+ 						<td th:text="${row.salutation}" />
+ 						<td th:text="${row.firstname}" />
+ 						<td th:text="${row.lastname}" />
+ 						<td th:text="${row.emailaddress}" />
+ 						<td th:text="${row.birthday}" /> 						
+ 						<td></td>
+ 					</tr>
+ 				</tbody>	
+				<tr></tr>			
+		</table>
+	</div>  
+  </body>

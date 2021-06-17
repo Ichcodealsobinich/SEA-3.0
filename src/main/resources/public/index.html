@@ -6,13 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
     <meta charset="UTF-8">					
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="script/myscript.js" type="module"></script>
-	<script src="script/nav.js"></script>	
-	<script>function deletePerson(id){
-		var url = `http://localhost:8080/json/person/${id}` ;
-		var meta = {method: 'DELETE'}
-		fetch(url, meta);
-	}</script>
+    <script src="script/nav.js"></script>	
 	<!--  <script src="script/validation.js" type="module"></script>-->							
   </head>
 
@@ -24,12 +18,10 @@
   				<button class="tablinks" onclick="openTab(event, 'add')">Anmelden</button>
   				<button class="tablinks" onclick="openTab(event, 'stuff')">Sonstiges</button>
 			</div>
-			<font color="black">  
-				<BLOCKQUOTE>	
-  		    		<h1> SEA Kurs</h1>
-    				<p> Lebenslanges Lernen!</p><br>
-    			</BLOCKQUOTE>	
-    		</font>
+			<BLOCKQUOTE>
+				<h1><font color="black">SEA Kurs</font></h1>
+				<p><font color="black">Lebenslanges Lernen!</font></p>			
+    		</BLOCKQUOTE>
   		</div>
 	</header>
 	
@@ -80,6 +72,7 @@
 	
   		</div>
 	</footer>
+		<script src="script/myscript.js"></script>
   </body>
 </html>
 

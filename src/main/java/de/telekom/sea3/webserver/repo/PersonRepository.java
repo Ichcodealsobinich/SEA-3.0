@@ -29,4 +29,12 @@ public class PersonRepository {
 		persons.addPerson(p);
 		return p;		
 	}
+	
+	public boolean delete(int id) {
+		return persons.delete(id);
+	}
+	
+	public Person update(int id, Person p) {
+		return persons.setPerson(id, p);
+	}
 }

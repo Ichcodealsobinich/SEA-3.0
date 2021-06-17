@@ -25,7 +25,7 @@ function buildTable(json) {
 	var tabelle = document.getElementById("idtable");
 	var i =0;
 	
-	//clean up table
+	//clean up table (shamelessly copied from Stackverflow)
 	Array.prototype.slice.call(document.getElementsByTagName('tr')).forEach(
   		function(item) {
     	item.remove();

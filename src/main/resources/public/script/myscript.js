@@ -6,7 +6,7 @@ document.getElementById("list").click();
 refresh();
 
 function refresh(){
-	fetch("http://localhost:8080/json/persons/all",
+	fetch("/json/persons/all",
 		{
 			method: 'GET',
 			headers: {
@@ -85,7 +85,7 @@ function oninputclick(event){
 	
 	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}"}`
 	
-	fetch("http://localhost:8080/json/person", 
+	fetch("/json/person", 
 		{
 			method: 'POST',
 			headers: {
@@ -98,7 +98,7 @@ function oninputclick(event){
 }
 
 function deletePerson(id){
-		var url = `http://localhost:8080/json/person/${id}` ;
+		var url = `/json/person/${id}` ;
 		var meta = {method: 'DELETE'}
 		fetch(url, meta).then(refresh);
 }

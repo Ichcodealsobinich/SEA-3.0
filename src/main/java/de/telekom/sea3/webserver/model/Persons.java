@@ -16,6 +16,7 @@ public class Persons {
 	}
 	
 	public void addPerson(Person p) {
+		p.setId(pList.size());
 		pList.add(p);
 	}
 	

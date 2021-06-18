@@ -10,7 +10,14 @@ public class Person {
 	private Salutation salutation;
 	private LocalDate birthday;
 	private String emailaddress;
+	private int id;
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getEmailaddress() {
 		return emailaddress;
 	}

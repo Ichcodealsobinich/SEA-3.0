@@ -6,43 +6,42 @@ document.getElementById("list").click();
 refresh();
 
 function refresh(){
-	fetch("/json/persons/all",
-		{
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json'
-			}
-		})
-	.then(getJson)     //Functional programming in JS
-	.then(buildTable); //Functional programming in JS
+	try {
+		fetch("/json/persons/all",
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		.then(checkResponse)     //Functional programming in JS
+		.then(buildTable); 		 //Functional programming in JS
+	} catch (exception) {
+		alert("Das hat leider nicht geklappt");
+	}
 }
 
-function getJson(ServerResponse){
-	return ServerResponse.json();
-}
+
 
 function buildTable(json) {
-	var tabelle = document.getElementById("idtable");
 	var i =0;
 	
-	//clean up table (shamelessly copied from Stackverflow)
-	Array.prototype.slice.call(document.getElementsByTagName('tr')).forEach(
-  		function(item) {
-    	item.remove();
-	});
+	//clean up table
+	var tbody= document.getElementById("idbody");
+	tbody.innerHTML="";
 	
 	//build table completely new
 	for (var element of json.persons) {		
-		tabelle.insertAdjacentHTML("beforeend", 
+		tbody.insertAdjacentHTML("beforeend", 
 			  `<tr>`
-			+ 	`<th scope='row'>  ${i}   </th>`
+			+ 	`<th> ${i}   </th>`
 			+	`<td> ${element.salutation}</td>`
 			+	`<td> ${element.firstname}</td>`
 			+	`<td> ${element.lastname}</td>`
 			+	`<td> ${element.emailaddress}</td>`
 			+	`<td> ${element.birthday}</td>`
-			+	`<td><img src='${getIcon(element.salutation)}'></td>`
-			+	`<td><img id='delete${i}'src='img/delete.jpeg' onclick='deletePerson(${i})'></td>`
+			+	`<td><img class='icon' src='${getIcon(element.salutation)}'></td>`
+			+	`<td><img class='icon' id='delete${i}'src='img/delete.jpeg' onclick='deletePerson(${i})' title='Entfernen'></td>`
 			+ "</tr>"			
 		);
 		i++;
@@ -94,13 +93,20 @@ function oninputclick(event){
 			body: json
 		}		
 	);
-	document.getElementById("list").click();
+	refresh();
 }
 
 function deletePerson(id){
 		var url = `/json/person/${id}` ;
 		var meta = {method: 'DELETE'}
 		fetch(url, meta).then(refresh);
+}
+
+function checkResponse(response){
+	if (!response.ok) {
+        throw new Error("HTTP status " + response.status);
+    }
+    return response.json();
 }
 
 

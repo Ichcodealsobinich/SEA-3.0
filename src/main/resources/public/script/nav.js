@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 	document.getElementById("list").click();
+	var tabcontent1 = document.getElementsByClassName("tabcontent");
+	tabcontent1[2].style.display = "block";
 });
+
 function openTab(evt, TabName) {
 	
   	

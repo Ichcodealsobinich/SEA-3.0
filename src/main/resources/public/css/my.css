@@ -1,8 +1,10 @@
+
 body {
   background-color: white;
+  font-family: sans-serif;
 }
 
-img {
+.icon {
   width:20px;
   height:20px;
 }
@@ -66,7 +68,6 @@ table tr:hover{
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
 } 
@@ -77,6 +78,39 @@ header {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.centered {
+	width: 50%;
+	margin-left: auto;
+  	margin-right: auto;
+}
 
+label {
+	margin-left: auto;
+  	margin-right: auto;
+}
 
+input {
+	margin-left: auto;
+  	margin-right: auto;
+}
 
+form {
+	width: 300px;
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: auto;
+}
+
+ /* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 12.5%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+} 

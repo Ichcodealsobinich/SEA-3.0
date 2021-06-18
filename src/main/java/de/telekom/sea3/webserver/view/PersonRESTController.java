@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -53,8 +55,16 @@ public class PersonRESTController {
 	}
 	
 	@PostMapping("/json/person")
-	public Person add(@RequestBody Person p){		
-		return personservice.addPerson(p);
+	public ResponseEntity<Person> add(@RequestBody Person p){
+		Person person = personservice.addPerson(p);
+		ResponseEntity<Person> ret;
+		if (person != null) {
+			ret = ResponseEntity.ok(person);
+		}else {
+			ret = new ResponseEntity<Person>(HttpStatus.BAD_REQUEST);
+			System.out.println("Bad Request");
+		}
+		return ret;		
 	}
 	
 	@DeleteMapping("/json/person/{id}")

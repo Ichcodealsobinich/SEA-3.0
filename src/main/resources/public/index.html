@@ -14,9 +14,9 @@
     <header>
   		<div class="header">  
   		    <div class="tab">
+  		    	<button class="tablinks" onclick="openTab(event, 'stuff')">Info</button>
   				<button class="tablinks" onclick="openTab(event, 'list')">Teilnehmer</button>
-  				<button class="tablinks" onclick="openTab(event, 'add')">Anmelden</button>
-  				<button class="tablinks" onclick="openTab(event, 'stuff')">Sonstiges</button>
+  				<button class="tablinks" onclick="openTab(event, 'add')">Anmelden</button>  				
 			</div>
 			<BLOCKQUOTE>
 				<h1>SEA Kurs</h1>
@@ -25,13 +25,14 @@
   		</div>
 	</header>
 	
-	<div id="list" class="tabcontent">  			
-  		<h3 id="2">Teilnehmer</h3> 	
+	<div id="list" class="tabcontent"> 
+		<div class="centered"> 			
+  		<h2 id="2">Teilnehmer</h2> 	
  		<hr class="vertical"/>		  
 		<table class="table mytable" id="idtable" >
  				<thead>
    				<tr>
-			      <th scope="col">#</th>
+			      <th scope="col">ID</th>
 			      <th scope="col">Anrede</th>
 			      <th scope="col">Vorname</th>
 			      <th scope="col">Nachname</th>
@@ -40,33 +41,93 @@
 			      <th scope="col">Profile</th>
    				</tr>
  				</thead>	
-				<tbody></tbody>			
+				<tbody id="idbody">
+				
+				</tbody>			
 		</table>
+		</div>
 	</div>  
 	<div id="add" class="tabcontent">
-		<h5>Jetzt anmelden!</h5>
-		<form>
-			<label for="salut">Anrede</label><br>
-		 	<select name="salut" id="salut">
-			  <option value="mr">Herr</option>
-			  <option value="miss">Frau</option>
-			  <option value="other">Divers</option>
-			</select><br>
-		  	<label for="fname">Vorname</label><br>
-		  	<input type="text" id="fname" name="fname"><br>
-		  	<label for="lname">Nachname</label><br>
-		  	<input type="text" id="lname" name="lname"><br>
-		  	<label for="email">Email Adresse</label><br>
-		  	<input type="text" id="email" name="email"><br>	
-		  	<label for="birthday">Geburtsdatum</label><br>
-			<input type="date" id="birthday" name="birthday" value="2003-06-16"
-       		min="1900-01-01" max="2003-06-16"><br>	<br>
-		 	<input id="button" type="submit" value="Submit">
-		</form>
+		<div class="centered">			
+			<form>
+				<h2>Jetzt anmelden!</h2>
+				<label for="salut">Anrede</label><br>
+			 	<select name="salut" id="salut">
+				  <option value="mr">Herr</option>
+				  <option value="miss">Frau</option>
+				  <option value="other">Divers</option>
+				</select><br>
+			  	<label for="fname">Vorname</label><br>
+			  	<input type="text" id="fname" name="fname"><br>
+			  	<label for="lname">Nachname</label><br>
+			  	<input type="text" id="lname" name="lname"><br>
+			  	<label for="email">Email Adresse</label><br>
+			  	<input type="text" id="email" name="email"><br>	
+			  	<label for="birthday">Geburtsdatum</label><br>
+				<input type="date" id="birthday" name="birthday" value="2003-06-16"
+	       		min="1900-01-01" max="2003-06-16"><br>	<br>
+			 	<input id="button" type="submit" value="Submit">
+			</form>
+		</div>
 	</div>	 
 	<div id="stuff" class="tabcontent">
-		<h5>Bla</h5>
-	</div>	   
+		<div class="centered">
+			<h2>Über den Kurs</h2><br>		
+			<h3>Inhalte und Ablauf</h3>
+			<p>
+				In der Software Engineering Academy (SEA) lernen Sie Grundlagen der Java-Programmierung.
+				In den ersten drei Monaten (Bootcamp) werden zunächst Grundlagen zu Linux, Bash und Git vermittelt,
+				sowie eine ausführlichere Einführung in Java gegeben.
+				Der Java-Teil beinhaltet folgende Themen: 
+				<ul>
+					<li>Primitive Datentypen</li>
+					<li>Ablaufsteuerung</li>
+					<li>Klassen und Methoden</li>
+					<li>Arbeiten mit Maven</li>
+					<li>Vererbung</li>
+					<li>Interfaces</li>
+					<li>Generics</li>
+					<li>Arbeiten mit Datenbanken</li>
+					<li>Unit Tests</li>
+					<li>Lamda-Ausdrücke</li>
+					<li>Webserver mit Spring</li>
+					<li>Templating mit Thymeleaf</li>
+				</ul> 
+				Nach dem Bootcamp können Sie Ihr erworbenes Wissen in einem echten Projekt testen und vertiefen.	
+			<h3>Voraussetzungen</h3>
+			<p>
+				Grundsätzlich ist kein Vorwissen in Programmierung erforderlich, es hilft jedoch sehr.
+				Wichtig ist, dass Sie Motivation und Gedult mitbringen.		
+			</p>
+			 <div class="row">
+  				<div class="column">
+    				<img alt="Linux" src="/img/linux.jpeg" style="width:100%">
+  				</div>
+ 				<div class="column">
+    				<img alt="Git" src="/img/git.jpeg" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="Java" src="/img/java.jpeg" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="Spring" src="/img/spring.jpeg" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="Thymeleaf" src="/img/thymeleaf.png" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="CSS" src="/img/css.jpeg" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="HTML5" src="/img/html5.jpeg" style="width:100%">
+  				</div>
+  				<div class="column">
+    				<img alt="JavaScript" src="/img/js.jpeg" style="width:100%">
+  				</div>
+			</div> 
+
+			</div>
+		</div>   
 	<footer>
   		<div class="wrap">   
 	

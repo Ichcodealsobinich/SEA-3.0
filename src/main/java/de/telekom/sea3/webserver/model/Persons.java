@@ -11,12 +11,17 @@ public class Persons {
 		return pList;
 	}
 
+	public Persons(List<Person> lp) {
+		this.pList=lp;
+	}
+	
+	public Persons() {}
+	
 	public void setPersons(List<Person> pList) {
 		this.pList = pList;
 	}
 	
 	public void addPerson(Person p) {
-		p.setId(pList.size());
 		pList.add(p);
 	}
 	

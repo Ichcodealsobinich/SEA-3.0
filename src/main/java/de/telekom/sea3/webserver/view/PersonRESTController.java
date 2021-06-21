@@ -1,6 +1,7 @@
 package de.telekom.sea3.webserver.view;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -34,23 +35,19 @@ public class PersonRESTController {
 	public PersonRESTController(PersonService ps) {
 		this.personservice = ps;
 	}
-	
-	@GetMapping("/json/count")
-	public Count getSize() {		
-		return new Count(personservice.getSize());
-	}
-	
+		
 	/**@see <a href="http://localhost:8000/json/participants/all">URL</a>
 	 * 
 	 * @return A list of all participants as a JSON-String
 	 */
 	@GetMapping("/json/persons/all")
 	public Persons getPersons(@RequestHeader HttpHeaders head) {	
-		return personservice.getAllPersons();
+		List<Person> lp = personservice.getAllPersons();
+		return new Persons(lp);
 	}
 	
 	@GetMapping("/json/persons/{id}")
-	public Person getperson(@PathVariable("id") int id) {
+	public Optional<Person> getperson(@PathVariable("id") Long id) {
 		return personservice.getPerson(id);
 	}
 	
@@ -68,12 +65,13 @@ public class PersonRESTController {
 	}
 	
 	@DeleteMapping("/json/person/{id}")
-	public boolean delete(@PathVariable("id") int id){		
+	public boolean delete(@PathVariable("id") Long id){		
 		return personservice.delete(id);
 	}
 	
 	@PutMapping("/json/person/{id}")
-	public Person update(@PathVariable("id") int id, @RequestBody Person p){
-		return personservice.update(id,p);
+	public Person update(@PathVariable("id") Long id, @RequestBody Person p){
+		p.setId(id);
+		return personservice.update(p);
 	}
 }

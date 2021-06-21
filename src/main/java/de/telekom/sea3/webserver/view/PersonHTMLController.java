@@ -21,16 +21,7 @@ public class PersonHTMLController {
 	public PersonHTMLController(PersonService ps) {
 		this.personservice = ps;
 	}
-	
-	@GetMapping("/count")
-	public String getSize(Model model,
-						  @RequestParam(value="name",
-										required=false,
-										defaultValue="World")String name) {
-		model.addAttribute("count", personservice.getSize());
-		return "count";
-	}	
-	
+		
 	@GetMapping("/greeting/{name}")
 	public @ResponseBody ResponseEntity<String> greeting(@PathVariable String name) {
 		String html = String.format("<!DOCTYPE html>	"
@@ -49,7 +40,7 @@ public class PersonHTMLController {
 	
 	@GetMapping("/table")
 	public String getTable(Model model) {
-		model.addAttribute("persons", personservice.getAllPersons().getPersons());
+		model.addAttribute("persons", personservice.getAllPersons());
 		return "table";
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import de.telekom.sea3.webserver.repo.PersonsRepository;
 import de.telekom.sea3.webserver.model.*;
 
@@ -29,9 +30,12 @@ public class PersonService {
 
 
 	public Person addPerson(Person p) {
-		if (p.getId()==null || p.getId()==0) {
-			p.setId(-1L);
-		}
+		/*if (p.getId()==null || p.getId()==-1L) {
+			Long newId = personsrepository.getId()+1;
+			System.out.println("id ist: + " + p.getId() + "; newId ist:" + newId);
+			if (newId<1) {newId=1L;}
+			p.setId(newId);
+		}*/
 		return personsrepository.save(p);		
 	}
 	
@@ -48,4 +52,5 @@ public class PersonService {
 		return personsrepository.save(p);
 	}
 	
+
 }

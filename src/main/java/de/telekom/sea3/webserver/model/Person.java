@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Person {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID")
 	private Long id;
 	
@@ -29,6 +29,7 @@ public class Person {
 	
 	@Column(name="BIRTHDATE")
 	private LocalDate birthday;
+	
 	@Column(name="Email")
 	private String emailaddress;
 
@@ -87,9 +88,12 @@ public class Person {
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.salutation=salutation;
+		id=-1L;
 	}
 	
-	public Person() {}
+	public Person() {
+		id=-1L;
+	}
 	
 	public String toString() {
 		return this.salutation.toString() + " " + firstname + " " + lastname;

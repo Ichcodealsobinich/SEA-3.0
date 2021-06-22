@@ -47,8 +47,15 @@ public class PersonRESTController {
 	}
 	
 	@GetMapping("/json/persons/{id}")
-	public Optional<Person> getperson(@PathVariable("id") Long id) {
-		return personservice.getPerson(id);
+	public ResponseEntity<Person> getperson(@PathVariable("id") Long id) {
+		Optional<Person> maybePerson = personservice.getPerson(id);
+		
+		if (maybePerson.isEmpty()) {
+			return new ResponseEntity<Person>(HttpStatus.NOT_FOUND);
+		} else {
+			return new ResponseEntity<Person>(maybePerson.get(),HttpStatus.OK );
+		}
+
 	}
 	
 	@PostMapping("/json/person")

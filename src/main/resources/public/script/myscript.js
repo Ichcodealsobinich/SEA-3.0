@@ -24,7 +24,6 @@ function refresh(){
 
 
 function buildTable(json) {
-	var i =0;
 	
 	//clean up table
 	var tbody= document.getElementById("idbody");
@@ -34,17 +33,16 @@ function buildTable(json) {
 	for (var element of json.persons) {		
 		tbody.insertAdjacentHTML("beforeend", 
 			  `<tr>`
-			+ 	`<th> ${i}   </th>`
+			+ 	`<th> ${element.id}   </th>`
 			+	`<td> ${element.salutation}</td>`
 			+	`<td> ${element.firstname}</td>`
 			+	`<td> ${element.lastname}</td>`
 			+	`<td> ${element.emailaddress}</td>`
 			+	`<td> ${element.birthday}</td>`
 			+	`<td><img class='icon' src='${getIcon(element.salutation)}'></td>`
-			+	`<td><img class='icon' id='delete${i}'src='img/delete.jpeg' onclick='deletePerson(${i})' title='Entfernen'></td>`
+			+	`<td><img class='icon' id='delete${element.id}'src='img/delete.jpeg' onclick='deletePerson(${element.id})' title='Entfernen'></td>`
 			+ "</tr>"			
 		);
-		i++;
 	}
 }
 
@@ -62,7 +60,7 @@ function getIcon(anrede) {
 		case "MRS": 
     		return 'img/frau.png'
   		default:
-    		return 'img/frau.png'
+    		return 'img/divers.jpeg'
 	} 
 }
 

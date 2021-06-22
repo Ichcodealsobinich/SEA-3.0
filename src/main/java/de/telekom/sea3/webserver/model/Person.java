@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +27,8 @@ public class Person {
 	private String lastname;
 	
 	@Column(name="SALUTATION")
-	private String salutation;
+	@Enumerated(EnumType.ORDINAL)
+	private Salutation salutation;
 	
 	@Column(name="BIRTHDATE")
 	private LocalDate birthday;
@@ -72,11 +75,11 @@ public class Person {
 		this.lastname = lastname;
 	}
 	public String getSalutation() {
-		return salutation;
+		return salutation.toString();
 	}
 	
 	public void setSalutation(String salutation) {
-		this.salutation = salutation;
+		this.salutation = Salutation.fromString(salutation);
 	}
 	
 	/*
@@ -87,7 +90,7 @@ public class Person {
 	public Person(String firstname, String lastname, String salutation) {
 		this.firstname=firstname;
 		this.lastname=lastname;
-		this.salutation=salutation;
+		this.salutation=Salutation.fromString(salutation);
 		id=-1L;
 	}
 	

@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Version;
 
 @Entity
 @Table(name="persons")
@@ -20,14 +21,23 @@ public class Person {
 	@Column(name="ID")
 	private Long id;
 	
+	@Version
+	@Column(name="VERSION")
+	private Long version;
+	
 	@Column(name="FIRSTNAME")
 	private String firstname;
 	
 	@Column(name="LASTNAME")
 	private String lastname;
 	
+	
+	/* Using ordinal is more memory friendly than String,
+	 * provided that the db column is from type INT.
+	 * Otherwise this has no advantage.
+	 */
+	@Enumerated(EnumType.ORDINAL) 
 	@Column(name="SALUTATION")
-	@Enumerated(EnumType.ORDINAL)
 	private Salutation salutation;
 	
 	@Column(name="BIRTHDATE")

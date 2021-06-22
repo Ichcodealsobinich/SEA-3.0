@@ -15,9 +15,9 @@ function refresh(){
 				}
 			})
 		.then(checkResponse)     //Functional programming in JS
-		.then(buildTable); 		 //Functional programming in JS
-	} catch (exception) {
-		alert("Das hat leider nicht geklappt");
+		.then(buildTable) 		 //Functional programming in JS
+	} catch(error) {
+		console.log(error);
 	}
 }
 
@@ -67,7 +67,7 @@ function getIcon(anrede) {
 var input = document.getElementById("button");
 input.addEventListener("click", oninputclick);
 
-function oninputclick(event){
+async function oninputclick(event){
 	event.preventDefault(); //prevents default behavior for submitbutton
 	var fname = document.getElementById("fname");
 	var vorname = fname.value;
@@ -80,18 +80,23 @@ function oninputclick(event){
 	var birthday = document.getElementById("birthday");
 	var date = birthday.value;
 	
-	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}"}`
-	
-	fetch("/json/person", 
-		{
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: json
-		}		
-	);
-	refresh();
+	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}"}`	
+	try {	
+		fetch("/json/person", 
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: json
+			}		
+		).then(checkResponse)
+		.then(showSuccessMessage)
+		.then(refresh)
+		
+	} catch(error) {
+		showErrorMessage();
+	}
 }
 
 function deletePerson(id){
@@ -101,11 +106,36 @@ function deletePerson(id){
 }
 
 function checkResponse(response){
-	if (!response.ok) {
-        throw new Error("HTTP status " + response.status);
+	if (response.status==404) {
+		throw new Error('Error');
     }
     return response.json();
 }
+
+function showSuccessMessage() {
+	// Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+function showErrorMessage() {
+	// Get the snackbar DIV
+  var x = document.getElementById("snackbarBad");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+
+
+
 
 
 

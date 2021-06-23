@@ -47,6 +47,10 @@ public class Person {
 	private String emailaddress;
 
 	
+	public Long getVersion() {
+		return version;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,11 +62,16 @@ public class Person {
 	}
 	public boolean setEmailaddress(String emailAddress) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		if (emailAddress.matches(regex) && emailAddress.length()<101) {
-			this.emailaddress = emailAddress;
-			return true;
-		}
-		return false;		
+		if (emailAddress.strip().matches(regex)) {
+			if (emailAddress.length()<101){
+				this.emailaddress = emailAddress.strip();
+				return true;
+			} else {
+				return false;
+			} 
+		} else {
+			return false;
+		}		
 	}
 	
 	public LocalDate getBirthday() {

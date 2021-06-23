@@ -32,7 +32,7 @@ function buildTable(json) {
 	//build table completely new
 	var i = 0;
 
-	var delimiter = "-------------------------------------------------------------";
+	var delimiter = "----------------------------------------------------------";
 	for (var element of json.persons) {	
 		if (i==10) {
 			tbody.insertAdjacentHTML("beforeend", 
@@ -45,7 +45,7 @@ function buildTable(json) {
 			);
 		}	
 		tbody.insertAdjacentHTML("beforeend", 
-			  `<tr>`
+			  `<tr id="row${i}">`
 			+ 	`<th> ${element.id}   </th>`
 			+	`<td> ${element.salutation}</td>`
 			+	`<td> ${element.firstname}</td>`
@@ -53,6 +53,7 @@ function buildTable(json) {
 			+	`<td> ${element.emailaddress}</td>`
 			+	`<td> ${element.birthday}</td>`
 			+	`<td><img class='icon' src='${getIcon(element.salutation)}'></td>`
+			+	`<td><img class='icon' id='edit${element.id}'src='img/edit.png' onclick='editPerson("row${i}", ${element.id}, ${i}, ${element.version})' title='Bearbeiten'></td>`
 			+	`<td><img class='icon' id='delete${element.id}'src='img/delete.jpeg' onclick='deletePerson(${element.id})' title='Entfernen'></td>`
 			+ "</tr>"			
 		);
@@ -188,7 +189,62 @@ function showHint(count){
 }
 
 
+function editPerson(row, id, counter, version) {
+    var editRow = document.getElementById(row);
+    var id = editRow.cells[0].innerHTML;
+	var salut = editRow.cells[1].innerHTML;
+	var firstname = editRow.cells[2].innerHTML;
+	var lastname = editRow.cells[3].innerHTML;
+	var email = editRow.cells[4].innerHTML;
+	var birthday = editRow.cells[5].innerHTML;
+	editRow.innerHTML = `<th> ${id}   </th>`
+			+	`<td contenteditable> ${salut}</td>`
+			+	`<td contenteditable> ${firstname}</td>`
+			+	`<td contenteditable> ${lastname}</td>`
+			+	`<td contenteditable> ${email}</td>`
+			+	`<td contenteditable> ${birthday}</td>`
+			+	`<td><img class='icon' src='${getIcon(salut)}'></td>`
+			+	`<td><img class='icon' id='save${id}'src='img/save.png' onclick='savePerson("row${counter}", ${id}, ${counter}, ${version})' title='Speichern'></td>`
+			+	`<td><img class='icon' id='delete${id}'src='img/delete.jpeg' onclick='deletePerson(${id})' title='Entfernen'></td>`;
 
+}
+
+function savePerson(row, id, counter, version) {
+	var editRow = document.getElementById(row);
+    var id = editRow.cells[0].innerHTML;
+	var salut = editRow.cells[1].innerHTML;
+	var firstname = editRow.cells[2].innerHTML;
+	var lastname = editRow.cells[3].innerHTML;
+	var email = editRow.cells[4].innerHTML;
+	var birthday = editRow.cells[5].innerHTML;
+	editRow.innerHTML = `<th> ${id}   </th>`
+			+	`<td> ${salut}</td>`
+			+	`<td> ${firstname}</td>`
+			+	`<td> ${lastname}</td>`
+			+	`<td> ${email}</td>`
+			+	`<td> ${birthday}</td>`
+			+	`<td><img class='icon' src='${getIcon(salut)}'></td>`
+			+	`<td><img class='icon' id='edit${id}'src='img/edit.png' onclick='editPerson("row${counter}", ${id}, ${counter}, ${version})' title='Speichern'></td>`
+			+	`<td><img class='icon' id='delete${id}'src='img/delete.jpeg' onclick='deletePerson(${id})' title='Entfernen'></td>`;
+	try {	
+		var json = `{"id":"${id}", "version":"${version}", "salutation":"${salut}", "firstname":"${firstname}","lastname":"${lastname}", "emailaddress":"${email}", "birthday":"${birthday}"}`	
+		fetch("/json/person", 
+			{
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: json
+			}		
+		).then(checkResponse)
+		.then(showSuccessMessage)
+		.then(refresh)
+		
+	} catch(error) {
+		showErrorMessage();
+	}	
+	
+}
 
 
 

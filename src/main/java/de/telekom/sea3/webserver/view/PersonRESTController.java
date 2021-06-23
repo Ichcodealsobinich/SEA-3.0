@@ -73,4 +73,10 @@ public class PersonRESTController {
 		p.setId(id);
 		return personservice.update(p);
 	}
+	
+	@GetMapping("/json/persons/count")
+	public long count() {
+		return personservice.count();
+	}
+
 }

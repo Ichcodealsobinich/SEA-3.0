@@ -30,7 +30,20 @@ function buildTable(json) {
 	tbody.innerHTML="";
 	
 	//build table completely new
-	for (var element of json.persons) {		
+	var i = 0;
+
+	var delimiter = "-------------------------------------------------------------";
+	for (var element of json.persons) {	
+		if (i==10) {
+			tbody.insertAdjacentHTML("beforeend", 
+				`<tr><td bgcolor="#FFFFFF" style="line-height:15px;" colspan="8">&nbsp;</td></tr>`
+			  	+ `<tr><th colspan="8">`
+				+ delimiter
+				+ `  Warteliste:  `
+				+ delimiter
+				+ `</th></tr>`		
+			);
+		}	
 		tbody.insertAdjacentHTML("beforeend", 
 			  `<tr>`
 			+ 	`<th> ${element.id}   </th>`
@@ -43,6 +56,7 @@ function buildTable(json) {
 			+	`<td><img class='icon' id='delete${element.id}'src='img/delete.jpeg' onclick='deletePerson(${element.id})' title='Entfernen'></td>`
 			+ "</tr>"			
 		);
+		i++;
 	}
 }
 
@@ -133,6 +147,47 @@ function showErrorMessage() {
   // After 3 seconds, remove the show class from DIV
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
+
+
+const countParticipants = document.getElementById("fname");
+countParticipants.addEventListener("click", checkCount);
+
+function checkCount(){
+	console.log("CheckCount aufgerufen");
+	var count = -1;
+	try {
+		fetch("/json/persons/count",
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+		.then(result=>result.json()) 
+		.then(showHint)     //Functional programming in JS											 //Functional programming in JS
+	} catch(error) {
+		console.log(error);
+	}
+	return count;
+}
+
+function showHint(count){	
+  console.log("ShowHint aufgerufen");
+  console.log(count);
+  if (count > 9) {
+	  console.log("ShowHint aufgerufen");
+	  // Get the snackbar DIV
+	  var x = document.getElementById("snackbarFull");
+	
+	  // Add the "show" class to DIV
+	  x.className = "show";
+	
+	  // After 3 seconds, remove the show class from DIV
+	  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+   }
+}
+
+
 
 
 

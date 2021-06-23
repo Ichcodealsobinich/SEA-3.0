@@ -51,6 +51,10 @@ public class PersonService {
 	public Person update( Person p) {
 		return personsrepository.save(p);
 	}
+
+	public long count() {
+		return personsrepository.count();
+	}
 	
 
 }

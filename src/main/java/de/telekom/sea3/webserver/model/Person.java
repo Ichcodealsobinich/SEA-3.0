@@ -1,3 +1,12 @@
+/*create Table persons (ID BIGINT PRIMARY KEY AUTO_INCREMENT Not null, 
+ * VERSION BIGINT NOT NULL DEFAULT 1, 
+ * FIRSTNAME Varchar(40), 
+ * LASTNAME Varchar(40), 
+ * SALUTATION TINYINT, 
+ * Email VARCHAR(100), 
+ * BIRTHDATE Date);
+ * */
+
 package de.telekom.sea3.webserver.model;
 
 import java.time.LocalDate;

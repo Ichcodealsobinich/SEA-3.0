@@ -154,7 +154,6 @@ const countParticipants = document.getElementById("fname");
 countParticipants.addEventListener("click", checkCount);
 
 function checkCount(){
-	console.log("CheckCount aufgerufen");
 	var count = -1;
 	try {
 		fetch("/json/persons/count",
@@ -176,7 +175,6 @@ function showHint(count){
   console.log("ShowHint aufgerufen");
   console.log(count);
   if (count > 9) {
-	  console.log("ShowHint aufgerufen");
 	  // Get the snackbar DIV
 	  var x = document.getElementById("snackbarFull");
 	

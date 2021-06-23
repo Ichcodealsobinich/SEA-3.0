@@ -58,19 +58,21 @@
 				  <option value="Divers">Divers</option>
 				</select><br>
 			  	<label for="fname">Vorname</label><br>
-			  	<input type="text" id="fname" name="fname"><br>
+			  	<input type="text" id="fname" name="fname" title='Keine Zahlen und Sonderzeichen erlaubt'><br>
 			  	<label for="lname">Nachname</label><br>
-			  	<input type="text" id="lname" name="lname"><br>
+			  	<input type="text" id="lname" name="lname" title='Keine Zahlen und Sonderzeichen erlaubt'><br>
 			  	<label for="email">Email Adresse</label><br>
-			  	<input type="text" id="email" name="email"><br>	
+			  	<input type="text" id="email" name="email" title='Muss ein gültiges Emailformat sein'><br>	
 			  	<label for="birthday">Geburtsdatum</label><br>
 				<input type="date" id="birthday" name="birthday" value="2003-06-16"
-	       		min="1900-01-01" max="2003-06-16"><br>	<br>
+	       		min="1900-01-01" max="2003-06-30" title='Muss mindestens 18 Jahre alt sein'><br>	<br>
 			 	<input id="button" type="submit" value="Submit">
 			</form>
 			<!-- Toastmessage -->
 			<div id="snackbar">✅ Teilnehmer erfolgreich hinzugefügt</div>
 			<div id="snackbarBad">❌ Das hat leider nicht funktioniert</div>
+			<div id="snackbarFull">Der Kurs ist leider schon ausgebucht.<br>
+									Sie können sich aber in die Warteliste eintragen</div>
 		</div>
 	</div>	 
 	<div id="stuff" class="tabcontent">

@@ -63,6 +63,19 @@ public class PersonRESTController {
 		return ret;		
 	}
 	
+	@PutMapping("/json/person")
+	public ResponseEntity<Person> update(@RequestBody Person p){
+		Person person = personservice.update(p);
+		ResponseEntity<Person> ret;
+		if (person != null) {
+			ret = ResponseEntity.ok(person);
+		}else {
+			ret = new ResponseEntity<Person>(HttpStatus.BAD_REQUEST);
+			System.out.println("Bad Request");
+		}
+		return ret;		
+	}
+	
 	@DeleteMapping("/json/person/{id}")
 	public boolean delete(@PathVariable("id") Long id){		
 		return personservice.delete(id);
@@ -73,4 +86,10 @@ public class PersonRESTController {
 		p.setId(id);
 		return personservice.update(p);
 	}
+	
+	@GetMapping("/json/persons/count")
+	public long count() {
+		return personservice.count();
+	}
+
 }

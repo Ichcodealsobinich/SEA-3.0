@@ -1,3 +1,12 @@
+/*create Table persons (ID BIGINT PRIMARY KEY AUTO_INCREMENT Not null, 
+ * VERSION BIGINT NOT NULL DEFAULT 1, 
+ * FIRSTNAME Varchar(40), 
+ * LASTNAME Varchar(40), 
+ * SALUTATION TINYINT, 
+ * Email VARCHAR(100), 
+ * BIRTHDATE Date);
+ * */
+
 package de.telekom.sea3.webserver.model;
 
 import java.time.LocalDate;
@@ -47,6 +56,10 @@ public class Person {
 	private String emailaddress;
 
 	
+	public Long getVersion() {
+		return version;
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -58,11 +71,16 @@ public class Person {
 	}
 	public boolean setEmailaddress(String emailAddress) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		if (emailAddress.matches(regex) && emailAddress.length()<101) {
-			this.emailaddress = emailAddress;
-			return true;
-		}
-		return false;		
+		if (emailAddress.strip().matches(regex)) {
+			if (emailAddress.length()<101){
+				this.emailaddress = emailAddress.strip();
+				return true;
+			} else {
+				return false;
+			} 
+		} else {
+			return false;
+		}		
 	}
 	
 	public LocalDate getBirthday() {

@@ -196,7 +196,7 @@ function editPerson(row, id, counter, version) {
 	var email = editRow.cells[4].innerHTML;
 	var birthday = editRow.cells[5].innerHTML;
 	editRow.innerHTML = `<th> ${id}   </th>`
-			+	`<td contenteditable> ${salut}</td>`
+			+	`<td contenteditable> ${salut}</td>` 
 			+	`<td contenteditable> ${firstname}</td>`
 			+	`<td contenteditable> ${lastname}</td>`
 			+	`<td contenteditable> ${email}</td>`
@@ -243,8 +243,6 @@ function savePerson(row, id, counter, version) {
 	}	
 	
 }
-
-
 
 
 

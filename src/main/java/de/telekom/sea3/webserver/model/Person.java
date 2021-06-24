@@ -20,6 +20,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Version;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="persons")
@@ -35,8 +41,12 @@ public class Person {
 	private Long version;
 	
 	@Column(name="FIRSTNAME")
+	@NotNull(message = "Der Vorname darf nicht leer sein")
+	@Length(min=2, max=40, message="Der Vorname muss zwischen 2 und 40 Zeichen lang sein")
 	private String firstname;
 	
+	@NotNull(message = "Der Vorname darf nicht leer sein")
+	@Length(min=2, max=40, message="Der Vorname muss zwischen 2 und 40 Zeichen lang sein")
 	@Column(name="LASTNAME")
 	private String lastname;
 	
@@ -50,9 +60,13 @@ public class Person {
 	private Salutation salutation;
 	
 	@Column(name="BIRTHDATE")
+	@Past(message="Geburtstag muss in der Vergangenheit liegen")
 	private LocalDate birthday;
 	
 	@Column(name="Email")
+	// @Email(message="Die Emailadresse muss ein gültiges Format haben") //doesnt work
+	@Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", 
+			 message="Email muss ein gültiges Format haben")
 	private String emailaddress;
 	
 	public Long getVersion() {
@@ -71,7 +85,8 @@ public class Person {
 		return emailaddress;
 	}
 	
-	public boolean setEmailaddress(String emailAddress) {
+	public boolean setEmailaddress(@Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", 
+			 message="Email muss ein gültiges Format haben") String emailAddress) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 		if (emailAddress.strip().matches(regex)) {
 			if (emailAddress.length()<101){

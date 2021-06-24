@@ -54,7 +54,6 @@ public class Person {
 	
 	@Column(name="Email")
 	private String emailaddress;
-
 	
 	public Long getVersion() {
 		return version;
@@ -63,12 +62,15 @@ public class Person {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getEmailaddress() {
 		return emailaddress;
 	}
+	
 	public boolean setEmailaddress(String emailAddress) {
 		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
 		if (emailAddress.strip().matches(regex)) {
@@ -86,6 +88,7 @@ public class Person {
 	public LocalDate getBirthday() {
 		return birthday;
 	}
+	
 	public void setBirthday(LocalDate date) {
 		this.birthday = date;
 	}
@@ -93,15 +96,19 @@ public class Person {
 	public String getFirstname() {
 		return firstname;
 	}
+	
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
+	
 	public String getLastname() {
 		return lastname;
 	}
+	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	
 	public String getSalutation() {
 		return salutation.toString();
 	}
@@ -109,11 +116,6 @@ public class Person {
 	public void setSalutation(String salutation) {
 		this.salutation = Salutation.fromString(salutation);
 	}
-	
-	/*
-	public void setSalutation(String salutation) {
-		this.salutation = Salutation.fromString(salutation);
-	}*/
 	
 	public Person(String firstname, String lastname, String salutation) {
 		this.firstname=firstname;

@@ -105,8 +105,7 @@ async function oninputclick(event){
 				},
 				body: json
 			}		
-		).then(checkResponse)
-		.then(showSuccessMessage)
+		).then(checkPostResponse)
 		.then(refresh)
 		
 	} catch(error) {
@@ -120,9 +119,27 @@ function deletePerson(id){
 		fetch(url, meta).then(refresh);
 }
 
+function checkPostResponse(response){
+	if (!response.ok) {
+		showErrorMessage(response.statusText);
+    }else {
+		showSuccessMessage();
+	}
+    return response.json();
+}
+
+function checkPutResponse(response){
+	if (!response.ok) {
+		showErrorMessage();
+    }else {
+		showSuccessMessage();
+	}
+    return response.json();
+}
+
 function checkResponse(response){
-	if (response.status==404) {
-		throw new Error('Error');
+	if (!response.ok) {
+		throw new Error("Error");
     }
     return response.json();
 }
@@ -138,12 +155,13 @@ function showSuccessMessage() {
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 }
 
-function showErrorMessage() {
+function showErrorMessage(message) {
 	// Get the snackbar DIV
   var x = document.getElementById("snackbarBad");
 
   // Add the "show" class to DIV
   x.className = "show";
+  x.innerText= x.innerText + message;
 
   // After 3 seconds, remove the show class from DIV
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
@@ -172,7 +190,6 @@ function checkCount(){
 }
 
 function showHint(count){	
-  console.log("ShowHint aufgerufen");
   console.log(count);
   if (count > 9) {
 	  // Get the snackbar DIV
@@ -234,7 +251,7 @@ function savePerson(row, id, counter, version) {
 				},
 				body: json
 			}		
-		).then(checkResponse)
+		).then(checkPutResponse)
 		.then(showSuccessMessage)
 		.then(refresh)
 		

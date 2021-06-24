@@ -1,0 +1,49 @@
+2021-06-24 14:35:26.126  INFO 16247 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 16247 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:35:26.131  INFO 16247 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:35:30.570  WARN 16247 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:35:31.183  INFO 16247 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 5.729 seconds (JVM running for 6.312)
+2021-06-24 14:35:38.769  INFO 16247 --- [http-nio-8080-exec-6] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:35:48.665  INFO 16247 --- [http-nio-8080-exec-8] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:42:45.584  INFO 16722 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 16722 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:42:45.592  INFO 16722 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:42:49.500  WARN 16722 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:42:50.088  INFO 16722 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 5.149 seconds (JVM running for 5.704)
+2021-06-24 14:42:52.691  INFO 16722 --- [http-nio-8080-exec-6] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:42:57.167  INFO 16722 --- [http-nio-8080-exec-5] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:44:19.115  INFO 16722 --- [http-nio-8080-exec-3] d.t.s.w.view.PersonRESTController        : Person mit Id: 5 soll gelöscht werden
+2021-06-24 14:44:19.163  INFO 16722 --- [http-nio-8080-exec-3] d.t.s.w.view.PersonRESTController        : Person mit Id: 5 wurde gelöscht
+2021-06-24 14:44:19.210  INFO 16722 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:44:19.898  INFO 16722 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Person mit Id: 6 soll gelöscht werden
+2021-06-24 14:44:19.908  INFO 16722 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Person mit Id: 6 wurde gelöscht
+2021-06-24 14:44:19.985  INFO 16722 --- [http-nio-8080-exec-9] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:44:50.205  INFO 16722 --- [http-nio-8080-exec-10] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:45:36.298  INFO 16931 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 16931 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:45:36.303  INFO 16931 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:45:40.345  WARN 16931 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:45:40.913  INFO 16931 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 5.183 seconds (JVM running for 5.674)
+2021-06-24 14:45:46.644  INFO 16931 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:46:02.054  INFO 16931 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Neue Person soll angelegt werden
+2021-06-24 14:46:02.099  INFO 16931 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Person mit Id: 7 angelegt
+2021-06-24 14:46:02.140  INFO 16931 --- [http-nio-8080-exec-5] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:48:08.401  INFO 17135 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 17135 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:48:08.404  INFO 17135 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:48:12.893  WARN 17135 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:48:13.495  INFO 17135 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 5.754 seconds (JVM running for 6.338)
+2021-06-24 14:48:18.969  WARN 17135 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Validation failed for argument [0] in public org.springframework.http.ResponseEntity<de.telekom.sea3.webserver.model.Person> de.telekom.sea3.webserver.view.PersonRESTController.add(de.telekom.sea3.webserver.model.Person) with 2 errors: [Field error in object 'person' on field 'firstname': rejected value [g]; codes [Length.person.firstname,Length.firstname,Length.java.lang.String,Length]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [person.firstname,firstname]; arguments []; default message [firstname],40,2]; default message [Der Vorname muss zwischen 2 und 40 Zeichen lang sein]] [Field error in object 'person' on field 'lastname': rejected value [d]; codes [Length.person.lastname,Length.lastname,Length.java.lang.String,Length]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [person.lastname,lastname]; arguments []; default message [lastname],40,2]; default message [Der Vorname muss zwischen 2 und 40 Zeichen lang sein]] 
+2021-06-24 14:48:19.040  INFO 17135 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:50:02.311  INFO 17321 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 17321 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:50:02.316  INFO 17321 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:50:07.593  WARN 17321 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:50:08.211  INFO 17321 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 6.548 seconds (JVM running for 7.123)
+2021-06-24 14:50:09.586  INFO 17321 --- [http-nio-8080-exec-6] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:50:12.191  WARN 17321 --- [http-nio-8080-exec-10] d.t.s.w.view.PersonRESTController        : Der Vorname muss zwischen 2 und 40 Zeichen lang sein
+2021-06-24 14:50:12.192  WARN 17321 --- [http-nio-8080-exec-10] d.t.s.w.view.PersonRESTController        : Der Vorname muss zwischen 2 und 40 Zeichen lang sein
+2021-06-24 14:50:12.255  INFO 17321 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-24 14:59:43.751  INFO 17659 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 17659 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-24 14:59:43.754  INFO 17659 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-24 14:59:47.577  WARN 17659 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-24 14:59:48.063  INFO 17659 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 4.951 seconds (JVM running for 5.445)
+2021-06-24 15:00:04.304  WARN 17659 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname muss zwischen 2 und 40 Zeichen lang sein
+2021-06-24 15:00:04.305  WARN 17659 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Bad Request: Geburtstag muss in der Vergangenheit liegen
+2021-06-24 15:00:04.305  WARN 17659 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname muss zwischen 2 und 40 Zeichen lang sein
+2021-06-24 15:00:04.377  INFO 17659 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen

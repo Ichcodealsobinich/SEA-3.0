@@ -69,6 +69,17 @@ public class Person {
 			 message="Email muss ein gültiges Format haben")
 	private String emailaddress;
 	
+	@Column(name="location")
+	private String location;
+	
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public Long getVersion() {
 		return version;
 	}

@@ -56,5 +56,12 @@ public class PersonService {
 		return personsrepository.count();
 	}
 	
-
+	public List<String> getLocations(){
+		return personsrepository.getLocations();
+	}
+	
+	public void addLocation(String location) {
+		personsrepository.addLocation(location);
+	}
+	
 }

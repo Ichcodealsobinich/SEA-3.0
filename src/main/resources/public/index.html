@@ -38,6 +38,7 @@
 			      <th scope="col">Nachname</th>
 			      <th scope="col">Email Adresse</th>
 			      <th scope="col">Geburtsdatum</th>
+			      <th scope="col">Standort</th>
 			      <th scope="col">Profile</th>
    				</tr>
  				</thead>	
@@ -65,8 +66,13 @@
 			  	<input type="text" id="email" name="email" title='Muss ein gültiges Emailformat sein'><br>	
 			  	<label for="birthday">Geburtsdatum</label><br>
 				<input type="date" id="birthday" name="birthday" value="2003-06-16"
-	       		min="1900-01-01" max="2003-06-30" title='Muss mindestens 18 Jahre alt sein'><br>	<br>
-			 	<input id="button" type="submit" value="Submit">
+	       		min="1900-01-01" max="2003-06-30" title='Muss mindestens 18 Jahre alt sein'><br>
+		 		<label for="locations">Standort wählen oder eingeben:</label>
+				<input list="standorte" id="locations" name="locations" /><br>	
+		 		<input id="button" type="submit" value="Submit"><br>	 
+		 		<datalist id="standorte">
+
+				</datalist>
 			</form>
 			<!-- Toastmessage -->
 			<div id="snackbar">✅ Teilnehmer erfolgreich hinzugefügt</div>

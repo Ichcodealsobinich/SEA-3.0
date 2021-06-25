@@ -1,5 +1,6 @@
 package de.telekom.sea3.webserver.view;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,6 +75,7 @@ public class PersonRESTController {
 		String logMessage = String.format("Neue Person soll angelegt werden");
 		logger.info(logMessage);
 		
+		personservice.addLocation(p.getLocation());
 		Person person = personservice.addPerson(p);
 		ResponseEntity<Person> ret;
 		if (person != null) {
@@ -89,9 +91,10 @@ public class PersonRESTController {
 	}
 	
 	@PutMapping("/json/person")
-	public ResponseEntity<Person> update(@RequestBody Person p){
+	public ResponseEntity<Person> update(@Valid @RequestBody Person p){
 		String logMessage = String.format("Person mit Id: %d soll geupdated werden", p.getId());
 		logger.info(logMessage);
+		personservice.addLocation(p.getLocation());
 		Person person = personservice.update(p);
 		ResponseEntity<Person> ret;
 		if (person != null) {
@@ -125,6 +128,7 @@ public class PersonRESTController {
 	@PutMapping("/json/person/{id}")
 	public Person update(@PathVariable("id") Long id, @RequestBody Person p){
 		p.setId(id);
+		personservice.addLocation(p.getLocation());
 		return personservice.update(p);
 	}
 	
@@ -145,6 +149,19 @@ public class PersonRESTController {
 	        logger.warn("Bad Request: " + errorMessage);
 	    });
 	    return errors;
+	}
+	
+	@GetMapping("/json/locations/")
+	public List<String> getLocations() {
+		logger.info("Standorte abgefragt");
+		return personservice.getLocations();
+		/*List<String> list = new ArrayList<String>();
+		list.add("Bonn");
+		list.add("St. Petersburg");
+		list.add("Köln");
+		list.add("Krefeld");
+		list.add("Ulm");
+		return list;*/
 	}
 
 }

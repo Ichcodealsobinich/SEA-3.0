@@ -387,3 +387,117 @@ java.sql.SQLException: Duplicate entry 'Köln' for key 'location'
 2021-06-25 11:20:10.112  INFO 13154 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Person mit Id: 22 soll gelöscht werden
 2021-06-25 11:20:10.122  INFO 13154 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Person mit Id: 22 wurde gelöscht
 2021-06-25 11:20:10.137  INFO 13154 --- [http-nio-8080-exec-6] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:41:47.411  INFO 14644 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 14644 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-25 12:41:47.413  INFO 14644 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-25 12:41:50.135  WARN 14644 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 12:41:50.524  INFO 14644 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 3.519 seconds (JVM running for 3.881)
+2021-06-25 12:41:55.755  INFO 14644 --- [http-nio-8080-exec-5] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:42:04.320  WARN 14644 --- [http-nio-8080-exec-3] d.t.s.w.view.PersonRESTController        : Bad Request: Keine gültige Emailaddresse
+2021-06-25 12:42:04.335  INFO 14644 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:50:38.314  INFO 15056 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 15056 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-25 12:50:38.317  INFO 15056 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-25 12:50:41.300  WARN 15056 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 12:50:41.776  INFO 15056 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 3.926 seconds (JVM running for 4.418)
+2021-06-25 12:50:42.771  INFO 15056 --- [http-nio-8080-exec-8] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:50:56.259  WARN 15056 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Bad Request: Keine gültige Emailaddresse
+2021-06-25 12:50:56.272  INFO 15056 --- [http-nio-8080-exec-3] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:51:05.546  INFO 15056 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Neue Person soll angelegt werden
+2021-06-25 12:51:05.641  INFO 15056 --- [http-nio-8080-exec-2] d.t.s.w.view.PersonRESTController        : Person mit Id: 23 angelegt
+2021-06-25 12:51:05.654  INFO 15056 --- [http-nio-8080-exec-7] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:51:20.087  WARN 15056 --- [http-nio-8080-exec-9] d.t.s.w.view.PersonRESTController        : Bad Request: Keine gültige Emailaddresse
+2021-06-25 12:51:20.109  INFO 15056 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:57:09.563  INFO 15458 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 15458 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-25 12:57:09.566  INFO 15458 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-25 12:57:11.554  WARN 15458 --- [main] o.h.c.beanvalidation.TypeSafeActivator   : HHH000274: Unable to apply constraints on DDL for de.telekom.sea3.webserver.model.Person
+
+javax.validation.ConstraintDefinitionException: HV000243: Constraint de.telekom.sea3.webserver.validations.Name references constraint validator type de.telekom.sea3.webserver.validations.EmailAddressValidator, but this validator is defined for constraint type de.telekom.sea3.webserver.validations.EmailAddress.
+	at org.hibernate.validator.internal.engine.constraintvalidation.ClassBasedValidatorDescriptor.of(ClassBasedValidatorDescriptor.java:48) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.engine.constraintvalidation.ConstraintValidatorDescriptor.forClass(ConstraintValidatorDescriptor.java:49) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.lambda$getDefaultValidatorDescriptors$4(ConstraintHelper.java:1149) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[na:na]
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[na:na]
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:913) ~[na:na]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[na:na]
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:578) ~[na:na]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.getDefaultValidatorDescriptors(ConstraintHelper.java:1150) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.lambda$getAllValidatorDescriptors$0(ConstraintHelper.java:872) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[na:na]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper$ValidatorDescriptorMap.computeIfAbsent(ConstraintHelper.java:1185) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper$ValidatorDescriptorMap.access$100(ConstraintHelper.java:1175) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.getAllValidatorDescriptors(ConstraintHelper.java:872) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.findValidatorDescriptors(ConstraintHelper.java:886) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.assertValidationAppliesToParameterSetUpCorrectly(ConstraintHelper.java:1065) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.lambda$isConstraintAnnotation$3(ConstraintHelper.java:1006) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at java.base/java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1705) ~[na:na]
+	at org.hibernate.validator.internal.metadata.core.ConstraintHelper.isConstraintAnnotation(ConstraintHelper.java:1002) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findConstraintAnnotations(AnnotationMetaDataProvider.java:534) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findConstraints(AnnotationMetaDataProvider.java:479) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findConstraints(AnnotationMetaDataProvider.java:461) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.findPropertyMetaData(AnnotationMetaDataProvider.java:236) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.getFieldMetaData(AnnotationMetaDataProvider.java:229) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.retrieveBeanConfiguration(AnnotationMetaDataProvider.java:129) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.provider.AnnotationMetaDataProvider.getBeanConfiguration(AnnotationMetaDataProvider.java:120) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.getBeanConfigurationForHierarchy(BeanMetaDataManagerImpl.java:234) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.createBeanMetaData(BeanMetaDataManagerImpl.java:201) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.metadata.BeanMetaDataManagerImpl.getBeanMetaData(BeanMetaDataManagerImpl.java:165) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.validator.internal.engine.ValidatorImpl.getConstraintsForClass(ValidatorImpl.java:316) ~[hibernate-validator-6.2.0.Final.jar!/:6.2.0.Final]
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyDDL(TypeSafeActivator.java:207) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:191) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.applyRelationalConstraints(TypeSafeActivator.java:150) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:98) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:131) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:283) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1259) ~[hibernate-core-5.4.32.Final.jar!/:5.4.32.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.8.jar!/:5.3.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.8.jar!/:5.3.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.8.jar!/:5.3.8]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.8.jar!/:5.3.8]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1845) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1782) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:602) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:524) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.8.jar!/:5.3.8]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.8.jar!/:5.3.8]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.8.jar!/:5.3.8]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.8.jar!/:5.3.8]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332) ~[spring-boot-2.5.1.jar!/:2.5.1]
+	at de.telekom.sea3.webserver.WebServer.main(WebServer.java:9) ~[classes!/:1.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:49) ~[SEA-3.0-1.0.jar:1.0]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:108) ~[SEA-3.0-1.0.jar:1.0]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:58) ~[SEA-3.0-1.0.jar:1.0]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:88) ~[SEA-3.0-1.0.jar:1.0]
+
+2021-06-25 12:57:12.075  WARN 15458 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 12:57:12.466  INFO 15458 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 3.304 seconds (JVM running for 3.639)
+2021-06-25 12:57:52.419  INFO 15584 --- [main] de.telekom.sea3.webserver.WebServer      : Starting WebServer v1.0 using Java 11.0.11 on sea4-Latitude-5501 with PID 15584 (/home/sea4/eclipse-workspace/SEA-3.0/target/SEA-3.0-1.0.jar started by sea4 in /home/sea4/eclipse-workspace/SEA-3.0)
+2021-06-25 12:57:52.422  INFO 15584 --- [main] de.telekom.sea3.webserver.WebServer      : No active profile set, falling back to default profiles: default
+2021-06-25 12:57:55.021  WARN 15584 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 12:57:55.342  INFO 15584 --- [main] de.telekom.sea3.webserver.WebServer      : Started WebServer in 3.35 seconds (JVM running for 3.726)
+2021-06-25 12:57:58.439  INFO 15584 --- [http-nio-8080-exec-5] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:58:25.004  WARN 15584 --- [http-nio-8080-exec-9] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname darf nur Buchstaben enthalten
+2021-06-25 12:58:25.017  INFO 15584 --- [http-nio-8080-exec-10] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:58:38.399  WARN 15584 --- [http-nio-8080-exec-8] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname darf nur Buchstaben enthalten
+2021-06-25 12:58:38.406  INFO 15584 --- [http-nio-8080-exec-6] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen
+2021-06-25 12:58:49.594  WARN 15584 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname darf nur Buchstaben enthalten
+2021-06-25 12:58:49.595  WARN 15584 --- [http-nio-8080-exec-1] d.t.s.w.view.PersonRESTController        : Bad Request: Der Vorname muss zwischen 2 und 40 Zeichen lang sein
+2021-06-25 12:58:49.617  INFO 15584 --- [http-nio-8080-exec-4] d.t.s.w.view.PersonRESTController        : Alle Personen abgerufen

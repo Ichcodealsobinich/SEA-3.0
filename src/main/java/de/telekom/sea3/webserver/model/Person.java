@@ -27,6 +27,9 @@ import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 
+import de.telekom.sea3.webserver.validations.EmailAddress;
+import de.telekom.sea3.webserver.validations.Name;
+
 @Entity
 @Table(name="persons")
 public class Person {
@@ -43,11 +46,13 @@ public class Person {
 	@Column(name="FIRSTNAME")
 	@NotNull(message = "Der Vorname darf nicht leer sein")
 	@Length(min=2, max=40, message="Der Vorname muss zwischen 2 und 40 Zeichen lang sein")
+	@Name(message="Der Vorname darf nur Buchstaben enthalten")
 	private String firstname;
 	
 	@NotNull(message = "Der Vorname darf nicht leer sein")
 	@Length(min=2, max=40, message="Der Vorname muss zwischen 2 und 40 Zeichen lang sein")
 	@Column(name="LASTNAME")
+	@Name(message="Der Nachname darf nur Buchstaben enthalten")
 	private String lastname;
 	
 	
@@ -64,9 +69,10 @@ public class Person {
 	private LocalDate birthday;
 	
 	@Column(name="Email")
-	// @Email(message="Die Emailadresse muss ein gültiges Format haben") //doesnt work
+	/* @Email(message="Die Emailadresse muss ein gültiges Format haben") //doesnt work
 	@Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", 
-			 message="Email muss ein gültiges Format haben")
+			 message="Email muss ein gültiges Format haben")*/
+	@EmailAddress
 	private String emailaddress;
 	
 	@Column(name="location")
@@ -96,19 +102,9 @@ public class Person {
 		return emailaddress;
 	}
 	
-	public boolean setEmailaddress(@Pattern(regexp = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$", 
-			 message="Email muss ein gültiges Format haben") String emailAddress) {
-		String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-		if (emailAddress.strip().matches(regex)) {
-			if (emailAddress.length()<101){
-				this.emailaddress = emailAddress.strip();
-				return true;
-			} else {
-				return false;
-			} 
-		} else {
-			return false;
-		}		
+	public boolean setEmailaddress(String emailAddress) {	
+		this.emailaddress = emailAddress.strip();
+		return true;
 	}
 	
 	public LocalDate getBirthday() {

@@ -13,6 +13,45 @@ heading {
 	color: black;
 }
 
+input {
+	float: right;
+}
+
+input:invalid {
+  box-shadow: 0 0 1px 1px red;
+  /*background-image: url(/img/invalid.jpeg);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: right;
+  	margin-left: auto;
+  	margin-right: auto;*/
+}
+
+input:valid {
+  box-shadow: 0 0 1px 1px green;
+  /*background-image: url(/img/ok.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: right;
+  	margin-left: auto;
+  	margin-right: auto;*/
+}
+
+select {
+	float: right;
+}
+
+.button {
+	float: left !important;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.button:hover {
+	box-shadow: 0 0 1px 1px grey;
+}
 .mytable {
   
   color: black;
@@ -95,7 +134,7 @@ input {
 }
 
 form {
-	width: 300px;
+	width: 550px;
 	margin-left: auto;
   	margin-right: auto;
   	padding: auto;

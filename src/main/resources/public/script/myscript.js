@@ -84,35 +84,41 @@ input.addEventListener("click", oninputclick);
 
 async function oninputclick(event){
 	event.preventDefault(); //prevents default behavior for submitbutton
-	var fname = document.getElementById("fname");
-	var vorname = fname.value;
-	var lname = document.getElementById("lname");
-	var nachname = lname.value;
-	var salut = document.getElementById("salut");
-	var anrede = salut.value;
-	var email = document.getElementById("email");
-	var emailaddress = email.value;
-	var birthday = document.getElementById("birthday");
-	var date = birthday.value;
-	var loc = document.getElementById("locations");
-	var location = loc.value;
-	
-	var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}", "location":"${location}"}`	
-	try {	
-		fetch("/json/person", 
-			{
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: json
-			}		
-		).then(checkPostResponse)
-		.then(refresh)
+	form=document.getElementById("form");
+	if (!form.checkValidity()) {
+		alert ("Bitte nur valide Eingaben abschicken");
+	}else {
+		var fname = document.getElementById("fname");
+		var vorname = fname.value;
+		var lname = document.getElementById("lname");
+		var nachname = lname.value;
+		var salut = document.getElementById("salut");
+		var anrede = salut.value;
+		var email = document.getElementById("email");
+		var emailaddress = email.value;
+		var birthday = document.getElementById("birthday");
+		var date = birthday.value;
+		var loc = document.getElementById("locations");
+		var location = loc.value;
 		
-	} catch(error) {
-		showErrorMessage();
+		var json = `{"salutation":"${anrede}", "firstname":"${vorname}","lastname":"${nachname}", "emailaddress":"${emailaddress}", "birthday":"${date}", "location":"${location}"}`	
+		try {	
+			fetch("/json/person", 
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: json
+				}		
+			).then(checkPostResponse)
+			.then(refresh)
+			
+		} catch(error) {
+			showErrorMessage();
+		}
 	}
+
 }
 
 function deletePerson(id){

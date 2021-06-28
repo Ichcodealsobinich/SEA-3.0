@@ -50,26 +50,28 @@
 	</div>  
 	<div id="add" class="tabcontent">
 		<div class="centered">			
-			<form>
+			<form id="form">
 				<h2>Jetzt anmelden!</h2>
-				<label for="salut">Anrede</label><br>
+				<label for="salut">Anrede<abbr title="Pflichtfeld" aria-label="required">*		</abbr></label>
 			 	<select name="salut" id="salut">
 				  <option value="Herr">Herr</option>
 				  <option value="Frau">Frau</option>
 				  <option value="Divers">Divers</option>
-				</select><br>
-			  	<label for="fname">Vorname</label><br>
-			  	<input type="text" id="fname" name="fname" title='Keine Zahlen und Sonderzeichen erlaubt'><br>
-			  	<label for="lname">Nachname</label><br>
-			  	<input type="text" id="lname" name="lname" title='Keine Zahlen und Sonderzeichen erlaubt'><br>
-			  	<label for="email">Email Adresse</label><br>
-			  	<input type="text" id="email" name="email" title='Muss ein gültiges Emailformat sein'><br>	
-			  	<label for="birthday">Geburtsdatum</label><br>
+				</select><br><br>
+			  	<label for="fname">Vorname<abbr title="Pflichtfeld" aria-label="required">*</abbr></label>
+			  	<input type="text" id="fname" name="fname" pattern="[A-Za-z\s\u00E4\u00F6\u00FC\u00C4\u00D6\u00DC\u00df]{2,40}" required title='Keine Zahlen und Sonderzeichen erlaubt'>
+			  	<span class=invalid style=display:none>Der Name darf nur Buchstaben und Leerzeichen enthalten und zwischen 2 und 40 Zeichen lang sein</span>
+			  	<br><br>
+			  	<label for="lname">Nachname<abbr title="Pflichtfeld" aria-label="required">*</abbr></label>
+			  	<input type="text" id="lname" name="lname" required pattern="[A-Za-z\s\u00E4\u00F6\u00FC\u00C4\u00D6\u00DC\u00df]{2,40}" title='Keine Zahlen und Sonderzeichen erlaubt'><br><br>
+			  	<label for="email">Email Adresse<abbr title="Pflichtfeld" aria-label="required">*</abbr></label>
+			  	<input type="email" id="email" name="email" required title='Muss ein gültiges Emailformat sein'><br><br>	
+			  	<label for="birthday">Geburtsdatum<abbr title="Pflichtfeld" aria-label="required">*</abbr></label>
 				<input type="date" id="birthday" name="birthday" value="2003-06-16"
-	       		min="1900-01-01" max="2003-06-30" title='Muss mindestens 18 Jahre alt sein'><br>
-		 		<label for="locations">Standort wählen oder eingeben:</label>
-				<input list="standorte" id="locations" name="locations" /><br>	
-		 		<input id="button" type="submit" value="Submit"><br>	 
+	       		min="1900-01-01" max="2003-06-30" title='Muss mindestens 18 Jahre alt sein'><br><br>
+		 		<label for="locations">Standort<abbr title="Pflichtfeld" aria-label="required">*</abbr></label>
+				<input list="standorte" id="locations" required pattern="[A-Za-z.\s\u00E4\u00F6\u00FC\u00C4\u00D6\u00DC\u00df]{2,40}" name="locations" title="Bitte einen Standort eingeben oder auswählen"/><br><br><br><br>	
+		 		<input id="button" class="button" type="submit" value="Submit"><br>	 
 		 		<datalist id="standorte">
 
 				</datalist>

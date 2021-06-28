@@ -19,10 +19,24 @@ input {
 
 input:invalid {
   box-shadow: 0 0 1px 1px red;
+  /*background-image: url(/img/invalid.jpeg);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: right;
+  	margin-left: auto;
+  	margin-right: auto;*/
 }
 
 input:valid {
   box-shadow: 0 0 1px 1px green;
+  /*background-image: url(/img/ok.png);
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  float: right;
+  	margin-left: auto;
+  	margin-right: auto;*/
 }
 
 select {

@@ -13,6 +13,31 @@ heading {
 	color: black;
 }
 
+input {
+	float: right;
+}
+
+input:invalid {
+  box-shadow: 0 0 1px 1px red;
+}
+
+input:valid {
+  box-shadow: 0 0 1px 1px green;
+}
+
+select {
+	float: right;
+}
+
+.button {
+	float: left !important;
+	box-shadow: none !important;
+	cursor: pointer;
+}
+
+.button:hover {
+	box-shadow: 0 0 1px 1px grey;
+}
 .mytable {
   
   color: black;
@@ -95,7 +120,7 @@ input {
 }
 
 form {
-	width: 300px;
+	width: 550px;
 	margin-left: auto;
   	margin-right: auto;
   	padding: auto;

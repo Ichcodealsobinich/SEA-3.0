@@ -1,6 +1,5 @@
 package de.telekom.sea3.webserver.view;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +14,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,6 +32,7 @@ import de.telekom.sea3.webserver.model.Persons;
 import de.telekom.sea3.webserver.service.PersonService;
 
 @RestController
+@Validated
 public class PersonRESTController {
 
 	private PersonService personservice;
@@ -126,7 +127,7 @@ public class PersonRESTController {
 	}
 	
 	@PutMapping("/json/person/{id}")
-	public Person update(@PathVariable("id") Long id, @RequestBody Person p){
+	public Person update(@PathVariable("id") Long id, @Valid @RequestBody Person p){
 		p.setId(id);
 		personservice.addLocation(p.getLocation());
 		return personservice.update(p);

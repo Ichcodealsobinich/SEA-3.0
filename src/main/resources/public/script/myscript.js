@@ -113,6 +113,7 @@ async function oninputclick(event){
 				}		
 			).then(checkPostResponse)
 			.then(refresh)
+			.then(form.reset())
 			
 		} catch(error) {
 			showErrorMessage();

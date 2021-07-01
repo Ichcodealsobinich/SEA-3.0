@@ -13,6 +13,6 @@ public class NameValidator implements ConstraintValidator<Name, String>{
       ConstraintValidatorContext cxt) {
     	if (name == null) {return false;}
 		if (name.length()<2 || name.length()>40) {return false;}
-		return name.chars().allMatch(NamePredicates::isAllowedInNames);	
+		return name.chars().allMatch(new NamePredicates());	
     }
 }

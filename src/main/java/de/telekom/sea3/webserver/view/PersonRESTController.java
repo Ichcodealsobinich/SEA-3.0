@@ -55,6 +55,30 @@ public class PersonRESTController {
 		return new Persons(lp);
 	}
 	
+	@GetMapping("/json/persons/filter/location/{location}")
+	public Persons filterByLocation(@PathVariable("location") String location) {
+		String logMessage = String.format("Alle Personen am Standort %s abgerufen", location);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("location",location);
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter/firstname/{firstname}")
+	public Persons filterByFirstname(@PathVariable("firstname") String firstname) {
+		String logMessage = String.format("Alle Personen mit Vornamen %s abgerufen", firstname);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("firstname",firstname);
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter/lastname/{lastname}")
+	public Persons filterByLastname(@PathVariable("lastname") String lastname) {
+		String logMessage = String.format("Alle Personen mit Vornamen %s abgerufen", lastname);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("lastname",lastname);
+		return new Persons(lp);
+	}
+	
 	@GetMapping("/json/persons/{id}")
 	public ResponseEntity<Person> getperson(@PathVariable("id") Long id) {
 		

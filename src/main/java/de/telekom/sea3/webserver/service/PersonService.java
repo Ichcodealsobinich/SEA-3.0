@@ -1,7 +1,12 @@
 package de.telekom.sea3.webserver.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +29,23 @@ public class PersonService {
 		return (List<Person>) personsrepository.findAll();
 	}
 	
+	//First steps in functional programming and it looks awful :-(
+	//Probably not a good idea to read all from DB and filter later
+	public List<Person> filter(String filterAttribute, String filterValue) {
+		List<Person> fList = (List<Person>) personsrepository.findAll();
+		Predicate<Person> predicate = (p) -> (true);
+		switch (filterAttribute) {
+			case "location": predicate = (p) -> (p).getLocation().equals(filterValue); break;
+			case "firstname":predicate = (p) -> (p).getFirstname().equals(filterValue); break;
+			case "lastname": predicate = (p) -> (p).getLastname().equals(filterValue); break;
+		}
+		Collector<Person,?,List<Person>> collector = Collectors.toList();		
+		return fList.stream().filter(predicate).collect(collector);
+	}
+	
 	public Optional<Person> getPerson(Long id) {
 		return personsrepository.findById(id);
 	}
-
 
 	public Person addPerson(Person p) {
 		/*if (p.getId()==null || p.getId()==-1L) {

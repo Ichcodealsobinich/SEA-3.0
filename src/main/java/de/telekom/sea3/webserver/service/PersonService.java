@@ -1,6 +1,7 @@
 package de.telekom.sea3.webserver.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -41,6 +42,21 @@ public class PersonService {
 		}
 		Collector<Person,?,List<Person>> collector = Collectors.toList();		
 		return fList.stream().filter(predicate).collect(collector);
+	}
+	
+	public List<Person> filterGeneric(HashMap<String, String> filter) {
+		List<Person> fList = (List<Person>) personsrepository.findAll();
+		Predicate<Person> predicate = (p) -> (true );
+		Collector<Person,?,List<Person>> collector = Collectors.toList();	
+		for (String f : filter.keySet()) {
+			switch (f) {
+				case "location": predicate = (p) -> (p).getLocation().equals(filter.get(f)); break;
+				case "firstname":predicate = (p) -> (p).getFirstname().equals(filter.get(f));break;
+				case "lastname": predicate = (p) -> (p).getLastname().equals(filter.get(f)); break;
+			}
+			fList = fList.stream().filter(predicate).collect(collector);
+		}			
+		return fList;
 	}
 	
 	public Optional<Person> getPerson(Long id) {

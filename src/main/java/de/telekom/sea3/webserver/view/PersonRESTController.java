@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -52,6 +53,43 @@ public class PersonRESTController {
 		String logMessage = String.format("Alle Personen abgerufen");
 		logger.info(logMessage);
 		List<Person> lp = personservice.getAllPersons();
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter/location/{location}")
+	public Persons filterByLocation(@PathVariable("location") String location) {
+		String logMessage = String.format("Alle Personen am Standort %s abgerufen", location);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("location",location);
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter/firstname/{firstname}")
+	public Persons filterByFirstname(@PathVariable("firstname") String firstname) {
+		String logMessage = String.format("Alle Personen mit Vornamen %s abgerufen", firstname);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("firstname",firstname);
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter")
+	public Persons filterByWhatever(
+			@RequestParam(name="firstname", required = false) String firstname,
+			@RequestParam(name= "lastname", required = false) String lastname,
+			@RequestParam(name="location", required = false) String location) {
+		HashMap<String, String> filter = new HashMap<String, String>();
+		if (firstname!=null) filter.put("firstname", firstname);
+		if (lastname!=null) filter.put("lastname", lastname);
+		if (location!=null) filter.put("location", location);
+		List<Person> lp = personservice.filterGeneric(filter);
+		return new Persons(lp);
+	}
+	
+	@GetMapping("/json/persons/filter/lastname/{lastname}")
+	public Persons filterByLastname(@PathVariable("lastname") String lastname) {
+		String logMessage = String.format("Alle Personen mit Vornamen %s abgerufen", lastname);
+		logger.info(logMessage);
+		List<Person> lp = personservice.filter("lastname",lastname);
 		return new Persons(lp);
 	}
 	

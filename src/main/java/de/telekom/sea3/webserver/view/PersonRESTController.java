@@ -1,8 +1,10 @@
 package de.telekom.sea3.webserver.view;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -30,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import de.telekom.sea3.webserver.model.Person;
 import de.telekom.sea3.webserver.model.Persons;
+import de.telekom.sea3.webserver.repo.KnownFilters;
 import de.telekom.sea3.webserver.service.PersonService;
 
 @RestController
@@ -76,12 +79,46 @@ public class PersonRESTController {
 	public Persons filterByWhatever(
 			@RequestParam(name="firstname", required = false) String firstname,
 			@RequestParam(name= "lastname", required = false) String lastname,
-			@RequestParam(name="location", required = false) String location) {
+			@RequestParam(name="location", required = false) String location){
 		HashMap<String, String> filter = new HashMap<String, String>();
+		//for (String s: @RequestParams) {}
 		if (firstname!=null) filter.put("firstname", firstname);
 		if (lastname!=null) filter.put("lastname", lastname);
 		if (location!=null) filter.put("location", location);
-		List<Person> lp = personservice.filterGeneric(filter);
+		
+		//filterGeneric reads all entries from the database and then applies 
+		//the given filters before returning the result
+		List<Person> lp = personservice.filterGeneric(filter); 
+		return new Persons(lp);
+	}
+	
+	
+	/**This endpoint is just like the one above but better:
+	 * First of all, the list of request parameters is a generic list ("Map")
+	 * with no need to know the parameters at compile time.
+	 * 
+	 * Second of all the method filterGeneric2 uses another approach: 
+	 * Instead of loading all entries from the database and then apply filters,
+	 * it builds a custom query based on the provided filters and then executes it 
+	 * against the db. Should be more effient with large datasets
+	 */
+	@GetMapping("/json/person/filter")
+	public Persons filterByWhatever2(@RequestParam Map<String,String> params){
+
+		HashMap<String, String> filter = new HashMap<String, String>();
+		for (var entry: params.entrySet()) {
+			//KnownFilters contains a list of allowed filter parameters.
+			//check if the current request parameter is in this list and
+			//check if the corresponding value is not null
+			if (KnownFilters.getFilters().contains(entry.getKey()) && entry.getValue()!=null) {
+				filter.put(entry.getKey(), entry.getValue());
+			}
+		}
+		
+		//filterGeneric2 builds a custom SQL Query based on the given filters
+		//and directly returns the result. Probably way more efficient with large 
+		//datasets than filterGeneric
+		List<Person> lp = personservice.filterGeneric2(filter);
 		return new Persons(lp);
 	}
 	

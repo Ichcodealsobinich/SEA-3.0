@@ -13,17 +13,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import de.telekom.sea3.webserver.repo.PersonsRepository;
+import de.telekom.sea3.webserver.repo.PersonsRepositoryCustomImpl;
 import de.telekom.sea3.webserver.model.*;
 
 @Service
 public class PersonService {
 
 	private PersonsRepository personsrepository;
-
+	private PersonsRepositoryCustomImpl prci;
 
 	@Autowired
-	public PersonService(PersonsRepository personsrepository) {
+	public PersonService(PersonsRepository personsrepository, PersonsRepositoryCustomImpl prci) {
 		this.personsrepository = personsrepository;
+		this.prci = prci;
 	}
 	
 	public List<Person> getAllPersons() {
@@ -57,6 +59,10 @@ public class PersonService {
 			fList = fList.stream().filter(predicate).collect(collector);
 		}			
 		return fList;
+	}
+	
+	public List<Person> filterGeneric2(HashMap<String, String> filter) {			
+		return prci.genericFilter(filter);
 	}
 	
 	public Optional<Person> getPerson(Long id) {
